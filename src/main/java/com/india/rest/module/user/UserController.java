@@ -13,9 +13,11 @@ public class UserController {
 	UserService userService;
 	
 	@RequestMapping("/getUserbyIdAndPassword")
-	public User getUser(@RequestParam(value="username") String username,@RequestParam(value="password") String password )
+	public Boolean getUser(@RequestParam(value="username") String username,@RequestParam(value="password") String password )
 	{
 		User user =userService.getUserbyIdAndPassword(username, password);
-	    return user;
+    	    if(user!=null)
+    	    return true;
+	    return false;
 	}
 }
