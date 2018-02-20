@@ -20,6 +20,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.india.rest.module.product.Product;
+
 @Service
 public class CategoryService {
 
@@ -58,4 +60,28 @@ public class CategoryService {
         categorygroup=categoryGroupRepository.findOne(groupId);
         return categorygroup;
     }
+    
+    public List<Product> getProductsByCategoryGroup(int groupId) {
+        List<Product> products= new ArrayList<Product>();
+        categoryGroupRepository.findOne(groupId).getCategories().forEach(categories->{
+            categories.getSubcategories().forEach((subCategories)->{
+                subCategories.getProducts().forEach(products::add);
+            });
+        });
+        return products;
+    }
+    
+    public List<Product> getProductsByCategoryGroupAndCategory(int groupId, int categoryId) {
+        List<Product> products= new ArrayList<Product>();
+        categoryGroupRepository.findOne(groupId).getCategories().forEach(categories->{
+            if(categories.getCategoryId()==categoryId)
+            {
+                categories.getSubcategories().forEach((subCategories)->{
+                    subCategories.getProducts().forEach(products::add);
+                });
+            }
+        });
+        return products;
+    }
+    
 }

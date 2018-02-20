@@ -69,4 +69,18 @@ public class CategoryController {
     	return productService.getProductByName(productName);
     }
     
+    @RequestMapping(method = RequestMethod.GET, value = "/getProductsByCategoryGroup")
+    public List<Product> getProductsByCategoryGroup(@RequestParam(value="groupId") int groupId)
+    {
+        System.out.println("##groupId Received: "+groupId);
+        return categoryService.getProductsByCategoryGroup(groupId);
+    }
+    
+    @RequestMapping(method = RequestMethod.GET, value = "/getProductsByCategoryGroupAndCategory")
+    public List<Product> getProductsByCategoryGroupAndCategory(@RequestParam(value="groupId") int groupId,@RequestParam(value="categoryId") int categoryId)
+    {
+        System.out.println("##groupId Received: "+groupId);
+        System.out.println("##categoryId Received: "+categoryId);
+        return categoryService.getProductsByCategoryGroupAndCategory(groupId,categoryId);
+    }
 }
