@@ -57,8 +57,16 @@ public class Product {
 
     private Boolean hasOffer;
     
-    private int offerId;
+    private int offerPercent;
     
+    public int getOfferPercent() {
+        return offerPercent;
+    }
+
+    public void setOfferPercent(int offerPercent) {
+        this.offerPercent = offerPercent;
+    }
+
     private int addedBy;
     
     private Date dateAdded;
@@ -76,8 +84,6 @@ public class Product {
     }
 
     private Boolean isActive;
-    
-    private Boolean isDeleted;
 
     public int getProductId() {
         return productId;
@@ -119,13 +125,6 @@ public class Product {
         this.hasOffer = hasOffer;
     }
 
-    public int getOfferId() {
-        return offerId;
-    }
-
-    public void setOfferId(int offerId) {
-        this.offerId = offerId;
-    }
 
     public int getAddedBy() {
         return addedBy;
@@ -158,14 +157,6 @@ public class Product {
 
     public void setIsActive(Boolean isActive) {
         this.isActive = isActive;
-    }
-
-    public Boolean getIsDeleted() {
-        return isDeleted;
-    }
-
-    public void setIsDeleted(Boolean isDeleted) {
-        this.isDeleted = isDeleted;
     }
     
 }
