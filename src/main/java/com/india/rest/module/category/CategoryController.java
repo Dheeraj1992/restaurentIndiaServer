@@ -24,8 +24,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.india.rest.module.product.Product;
 import com.india.rest.module.product.ProductService;
-import com.india.rest.module.user.User;
-import com.india.rest.module.user.UserService;
 
 
 @RestController

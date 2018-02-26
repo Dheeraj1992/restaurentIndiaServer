@@ -18,5 +18,10 @@ public class UserService {
 				else
 					return u;
 	}
+	
+	 public User createUser(User user)
+	    {
+	    	return userRepository.save(user);
+	    }
 
 }
