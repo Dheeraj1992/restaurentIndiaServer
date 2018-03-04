@@ -24,4 +24,9 @@ public class UserService {
 	    	return userRepository.save(user);
 	    }
 
+	public User getUserbyId(String userid) {
+		// TODO Auto-generated method stub
+		return userRepository.findByUsername(userid);
+	}
+
 }

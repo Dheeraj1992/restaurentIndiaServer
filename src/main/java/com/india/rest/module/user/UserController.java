@@ -23,6 +23,15 @@ public class UserController {
 	    return false;
 	}
 	
+	@RequestMapping("/getUserById")
+	public Boolean getUserById(@RequestParam(value="userid") String userid )
+	{
+		User user =userService.getUserbyId(userid);
+    	    if(user!=null)
+    	    return true;
+	    return false;
+	}
+	
 	 @RequestMapping(method = RequestMethod.POST, value = "/saveUser")
 	    public User createUser(@RequestBody User user)
 	    {
