@@ -2,10 +2,12 @@ package com.india.rest.module.user;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 
 import com.india.rest.module.cart.Cart;
@@ -14,6 +16,7 @@ import com.india.rest.module.cart.Cart;
 public class User {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	int userId;
 	public int getUserId() {
 		return userId;
@@ -81,9 +84,8 @@ public class User {
 	Date dateAdded;
 	Date dateModified;
 
-	@OneToOne//column name in another table
-	@MapsId	
-	@JoinColumn(name = "cartId")
+	@OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "cart_id")
 	private Cart cart;
 	
 	public Cart getCart() {
